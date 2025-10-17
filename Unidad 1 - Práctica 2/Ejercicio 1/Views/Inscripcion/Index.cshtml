@@ -1,16 +1,207 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Formulario de Usuario";
 }
 
-<h2>Formulario de Usuario</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario de Usuario</title>
 
-<form action="Inscripcion/Usuario" method="post">
-    <label>Nombre:</label>
-    <input type="text" name="nombre" required />
-    <br />
-    <label>Fecha de nacimiento:</label>
-    <input type="date" name="fechaNacimiento" required />
-    <br />
-    <button type="submit">Enviar</button>
-</form>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, 'sans-serif';
+            background-image: url('https://cdn.pixabay.com/photo/2024/09/05/08/24/mountain-9024209_1280.jpg');
+            background-size: cover;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.8);
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            text-align: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        .form-container > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-container h2 {
+             margin-bottom: 25px;
+             font-size: 28px;
+             font-weight: bold;
+             color: lightslategray;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .input-group:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1em;
+        }
+
+        .form-container input:focus {
+            border-bottom: 2px solid #007BFF;
+        }
+
+        .form-container label {
+            position: absolute;
+            left: 10px;
+            background-color: white;
+            top: 10px;
+            transition: 0.3s ease;
+            color: #888;
+        }
+
+        .form-container input:focus + label {
+            transform: translateY(-50%) scale(0.85);
+            top: -0px;
+            background-color: #fff;
+            color: #007BFF;
+        }
+
+        input:not(:placeholder-shown) + label {
+            transform: translateY(-50%) scale(0.85);
+            top: 0px;
+            left: 5px;
+            background-color: #fff;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="date"] {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            background-color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #ccc 50%), linear-gradient(135deg, #ccc 50%, transparent 50%), linear-gradient(to right, #eee, #eee);
+            background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+            background-size: 5px 5px, 5px 5px, 1px 1.5em;
+            background-repeat: no-repeat;
+        }
+
+        .form-container input[type="text"]:focus,
+        .form-container input[type="date"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus {
+            box-shadow: 0 0 5px #00c3ff;
+        }
+
+        button {
+            background-color: #00b4db;
+            background-image: linear-gradient(45deg, #00b4db, #0083b0);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-image: linear-gradient(45deg, #0083b0, #00b4db);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .footer a {
+             color: #00e1ff;
+             text-decoration: none;
+            }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="form-container">
+            <h2>Formulario de Usuario</h2>
+            <form action="Inscripcion/Usuario" method="post">
+
+                <div class="input-group">
+                    <input type="text" name="nombre" required placeholder=" ">
+                    <label>Nombre:</label>
+                 </div>
+
+                <div class="input-group">
+                    <input type="date" name="fechaNacimiento" required />
+                    <label>Fecha de nacimiento:</label>
+                 </div>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+</body>
+</html>

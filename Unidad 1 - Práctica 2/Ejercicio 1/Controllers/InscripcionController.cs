@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ejercicio_1.Controllers
 {
