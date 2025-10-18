@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
     <title>Formulario de Usuario</title>
@@ -48,16 +49,16 @@
             border-radius: 15px;
         }
 
-        .form-container > * {
+        .form-container>* {
             position: relative;
             z-index: 2;
         }
 
         .form-container h2 {
-             margin-bottom: 25px;
-             font-size: 28px;
-             font-weight: bold;
-             color: lightslategray;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: lightslategray;
         }
 
         .input-group {
@@ -90,14 +91,14 @@
             color: #888;
         }
 
-        .form-container input:focus + label {
+        .form-container input:focus+label {
             transform: translateY(-50%) scale(0.85);
             top: -0px;
             background-color: #fff;
             color: #007BFF;
         }
 
-        input:not(:placeholder-shown) + label {
+        input:not(:placeholder-shown)+label {
             transform: translateY(-50%) scale(0.85);
             top: 0px;
             left: 5px;
@@ -175,33 +176,34 @@
         }
 
         .footer a {
-             color: #00e1ff;
-             text-decoration: none;
-            }
+            color: #00e1ff;
+            text-decoration: none;
+        }
 
         .footer a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
+
 <body>
-        <div class="form-container">
-            <h2>Formulario de Usuario</h2>
-            <form action="Inscripcion/Usuario" method="post">
+    <div class="form-container">
+        <h2>Formulario de Usuario</h2>
+        <form action="Inscripcion/Usuario" method="post">
 
-                <div class="input-group">
-                    <input type="text" name="nombre" required placeholder=" ">
-                    <label>Nombre:</label>
-                 </div>
+            <div class="input-group">
+                <input type="text" name="nombre" required placeholder=" ">
+                <label>Nombre:</label>
+            </div>
 
-                <div class="input-group">
-                    <input type="date" name="fechaNacimiento" required />
-                    <label>Fecha de nacimiento:</label>
-                 </div>
-                
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+            <div class="input-group">
+                <input type="date" name="fechaNacimiento" required />
+                <label>Fecha de nacimiento:</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
+
 </html>
